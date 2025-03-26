@@ -4,15 +4,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt(); //정수로된 변수 n을 사용자가 입력해서 받아옴
-    int m = sc.nextInt(); //정수로된 변수 m을 사용자가 입력해서 받아옴
-    for (int i = 0; i < m; i++) {// 반복문을 세로줄인m을 입력받은 수까지 돌음
-        for (int j = 0; j <n-1; j++) { //가로줄 n을 입력받은 값 n 까지 돌고 m때문에 하나가 입력되어있으므로 1을 빼줌
-            System.out.print("*"); // *출력
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(); // 정수로된 변수 n을 사용자가 입력
+        int m = 1; // 정수 m변수에 1을 넣음
+        for (int i = n; i > 0; i--) { //for문을 도는데 i=n부터 1씩 감소도되록 설정
+            for (int j = 0; j < n - i; j++) { // j는 0부터 n-i까지 즉 사용자가 입력한 값에서 n-1..n-2..n-3..씩 빼면서 빈 공간을 출력
+                System.out.print(" ");
+            }
+            for (int k = n; k - m >= 0; k--) { // k는 n부터 반복문을 도는데 사용자가 입력한 값 -m만큼돌음 그러면 처음에는 4 두번째는 3...
+                System.out.print(k - (m - 1) + " ");// k에서 m-1을 뺌 처음에는 k-2-1 , k-3-1 k-4-1 이런식으로 m이 증가되면서 빈공간을 출력
+            }
+            System.out.println(); // 줄바꿈
+            m++; // m은 1씩 증가
         }
-        System.out.println("*"); // *출력
-    }
-
     }
 }
+
